@@ -1,0 +1,24 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lista de Usuarios</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-sliding *ngFor="let user of users" >
+        <ion-item (click)="openUser(user.id)">
+          <h2>{{ user.nome }}</h2>
+        </ion-item>
+        <ion-item-options side="left">
+          <button ion-button color="primary" (click)="openUserEdit(user.id)"> <ion-icon name="create"></ion-icon>Editar</button>
+          <button ion-button color="danger" (click)="deleteUser(user)"> <ion-icon name="trash"></ion-icon>Excluir</button>
+        </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  
+</ion-content>

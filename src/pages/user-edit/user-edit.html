@@ -1,0 +1,30 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Editar Usuario</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div text-center>
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>Nome</ion-label>
+        <ion-input type="text" name="nome" [(ngModel)]="model.nome"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label floating>Senha</ion-label>
+        <ion-input type="password" name="senha" [(ngModel)]="model.senha"></ion-input>
+      </ion-item>
+    
+    </ion-list>
+    <div padding>
+      <button ion-button color="primary" block (click)="save()">SALVAR DADOS</button>
+    </div>
+  </div>
+</ion-content>

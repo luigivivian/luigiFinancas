@@ -1,17 +1,29 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <div class="boxInicio" text-center>
+    <h3 style="color: white;">Saldo em conta</h3>
+    <h3 style="color: white;">R$ 600</h3>
+  </div>
+  <div text-center padding>
+      <h2>Opções disponiveis:</h2>
+      <div>
+        <button ion-button full (click)="telaCriarConta()">CRIAR CONTA</button>
+      </div>
+      <div>
+        <button ion-button full (click)="goToLogin()">LOGIN</button>
+      </div>
+      <div>
+        <button ion-button full (click)="telaListUsers()">LISTA USUARIOS</button>
+      </div>
+  </div>
+
+  <ion-fab text-center right bottom margin fab-content-margin fab-list-margin class="margin">
+      <h5>Sair</h5>
+      <button ion-fab color="danger" (click)="sair()"><ion-icon name="ios-log-out-outline"></ion-icon></button>
+      
+  </ion-fab>
+  
 </ion-content>
