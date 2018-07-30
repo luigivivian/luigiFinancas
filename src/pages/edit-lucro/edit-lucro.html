@@ -6,13 +6,59 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>edit-lucro</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>Editar Lucro</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+    <ion-item>
+        <ion-icon name="ios-cash" item-start></ion-icon>
+        <ion-label floating>Insira o Valor (R$)</ion-label>
+        <ion-input required type="number" [(ngModel)]="model.valorTotal"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-icon name="add" item-start></ion-icon>
+        <ion-label floating>Quantidade X</ion-label>
+        <ion-input min="1" step="1" [(ngModel)]="model.qtd" required value="1" type="number"></ion-input>
+      </ion-item>
+    
+      <ion-item>      
+          <ion-icon name="ios-calendar" item-start></ion-icon>
+          <ion-label floating>Data</ion-label>
+          <ion-datetime required [(ngModel)]="model.data" displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY"></ion-datetime>
+      </ion-item>
+    
+      <ion-item>      
+          <ion-icon name="mic" item-start></ion-icon>
+          <ion-label floating>
+            Descrição
+          </ion-label>
+          <ion-input required type="text" name="descricao" [(ngModel)]="model.descricao" required></ion-input>
+      </ion-item>
+    
+    <ion-item>
+        <ion-icon name="ios-paper" item-start></ion-icon>
+      <ion-label floating>Categoria</ion-label>
+      <ion-select required [(ngModel)]="model.idCategoria">
+        <ion-option value="1">Cheque</ion-option>
+        <ion-option value="2">Cartao</ion-option>
+        <ion-option value="3">Dinheiro</ion-option>
+      </ion-select>
+    </ion-item>
+    
+    
+    
+    <ion-item padding no-lines>
+        <ion-checkbox checked="false" [(ngModel)]="model.flag"></ion-checkbox>
+        <ion-label>Recebido?</ion-label>
+    </ion-item>
+    
+    <div padding>
+      <button ion-button color="primary" (click)="save()" round block>Salvar</button>
+    </div>
+    
 </ion-content>

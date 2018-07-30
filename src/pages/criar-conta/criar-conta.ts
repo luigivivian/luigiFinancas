@@ -26,6 +26,7 @@ export class CriarContaPage {
   
   criarConta(){
     if(this.model.nome == '' || this.model.senha == ''){
+      this.toast.create({message: 'Preencha todos os campos !' , position: 'botton', duration: 3000}).present();
       return;
     }
     this.UsuarioProvider.getByNome(this.model) //verificar se o nome já esta cadastrado

@@ -46,8 +46,6 @@ import { GastoProvider } from '../providers/gasto/gasto';
     LoginPage,
     NovoLucroPage,
     NovoGastoPage,
-    EditGastoPage,
-    EditLucroPage,
     LucrosPage,
     GastosPage
 
@@ -70,8 +68,6 @@ import { GastoProvider } from '../providers/gasto/gasto';
     LoginPage,
     NovoLucroPage,
     NovoGastoPage,
-    EditGastoPage,
-    EditLucroPage,
     LucrosPage,
     GastosPage
   ],

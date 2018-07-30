@@ -15,6 +15,7 @@ import { Storage } from '@ionic/storage';
 })
 export class LoginPage {
   model : User;
+  session : Sessao;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private UsuarioProvider: UsuarioProvider, private toast: ToastController, private storage: Storage) {
       this.model = new User();
@@ -32,8 +33,14 @@ export class LoginPage {
             this.toast.create({message: 'Usuario ou Senha incorreto !' , position: 'botton', duration: 3000}).present();
             return;
           }else{
+
+            this.session = new Sessao();
+            this.session.id = result.response.id;
+            this.session.nome = result.response.nome;
+            this.session.senha = result.response.senha
+
             this.toast.create({message: 'Login aprovado !' , position: 'botton', duration: 3000}).present();
-            this.storage.set('usuario', this.model);
+            this.storage.set('usuario', this.session);
             this.navCtrl.push(TabsPage);
           }
     });
@@ -46,6 +53,12 @@ export class LoginPage {
 }
 
 export class User{
+  nome: string;
+  senha: string;
+}
+
+export class Sessao{
+  id: number;
   nome: string;
   senha: string;
 }

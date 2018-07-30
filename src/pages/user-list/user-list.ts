@@ -1,6 +1,4 @@
-import { UserEditPage } from './../user-edit/user-edit';
-import { CriarContaPage } from './../criar-conta/criar-conta';
-import { UserInfoPage } from './../user-info/user-info';
+
 import { UsuarioProvider } from './../../providers/usuario/usuario';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
@@ -25,9 +23,7 @@ export class UserListPage {
   getAllUsers(){
     this.usuarioProvider.getAll()
     .then((result: any) =>{
-      //console.log(result.response[0]);
       for (let i = 0; i < result.response.length; i++) {
-        //console.log(result.response[i]);
         var user = result.response[i];
         this.users.push(user);
       }

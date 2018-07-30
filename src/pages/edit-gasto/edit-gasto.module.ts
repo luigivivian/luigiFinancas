@@ -4,7 +4,7 @@ import { EditGastoPage } from './edit-gasto';
 
 @NgModule({
   declarations: [
-    EditGastoPage,
+    EditGastoPage
   ],
   imports: [
     IonicPageModule.forChild(EditGastoPage),

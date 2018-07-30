@@ -1,4 +1,4 @@
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
 
@@ -6,24 +6,18 @@ import { Injectable } from '@angular/core';
 
 
 import 'rxjs/add/operator/map';
-import { HttpClient,HttpHeaders, HttpClientModule } from '@angular/common/http';
-import { CATCH_ERROR_VAR } from '@angular/compiler/src/output/abstract_emitter';
 
 @Injectable()
 export class UsuarioProvider {
 
-  private API_URL = 'http://localhost:80/apiFinancas/api/';
+  private API_URL = 'http://192.168.3.150/apiFinancas/api/';
 
   constructor(public http: Http) {
 
   }
 
   criarConta(nome: string, senha: string){
-       var data = JSON.stringify({
-        nome: nome,
-        senha: senha
-       });
-       
+
       return new Promise((resolve, reject) =>{
         var data = JSON.stringify({
             nome: nome,
@@ -118,7 +112,6 @@ export class UsuarioProvider {
     });
   }
   update(usuario : any){
-
     return new Promise((resolve, reject) =>{
       var data = {
         id: usuario.id,

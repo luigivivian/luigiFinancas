@@ -5,20 +5,65 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+    <ion-item>
+            <ion-select class="select" required [(ngModel)]="model.ano" (ionChange)="getAllGastos()">
+                <ion-option *ngFor="let ano of anos" value="{{ ano }}">{{ ano }}</ion-option>
+            </ion-select>
 
+            <ion-select class="select" [(ngModel)]="model.mes" (ionChange)="getAllGastos()" required>
+                <ion-option value="-1" selected>Mês</ion-option>
+                <ion-option value="1">Janeiro</ion-option>
+                <ion-option value="2">Fevereiro</ion-option>
+                <ion-option value="3">Março</ion-option>
+                <ion-option value="4">Abril</ion-option>
+                <ion-option value="5">Maio</ion-option>
+                <ion-option value="6">Junho</ion-option>
+                <ion-option value="7">Julho</ion-option>
+                <ion-option value="8">Agosto</ion-option>
+                <ion-option value="9">Setembro</ion-option>
+                <ion-option value="10">Outubro</ion-option>
+                <ion-option value="11">Novembro</ion-option>
+                <ion-option value="12">Dezembro</ion-option>
+            </ion-select>
 
+            <ion-select class="select" [(ngModel)]="model.categoria" (ionChange)="getAllGastos()" required>
+                <ion-option value="0" selected>Tudo</ion-option>
+                <ion-option value="1">Cheque</ion-option>
+                <ion-option value="2">Cartao</ion-option>
+                <ion-option value="3">Dinheiro</ion-option>
+            </ion-select>
+    </ion-item>
 
 </ion-header>
 
 
-<ion-content padding>
-  <ion-fab right bottom margin fab-content-margin fab-list-margin class="margin">
-    <button ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
-    <ion-fab-list side="top">
-        <button color="danger" ion-fab><ion-icon name="md-trending-down"></ion-icon></button>
-    </ion-fab-list>
-    <ion-fab-list side="left">
-        <button ion-fab color="secondary"><ion-icon name="md-trending-up"></ion-icon></button>
-    </ion-fab-list>
-  </ion-fab>
+<ion-content>
+  <ion-list>
+      <ion-item-sliding *ngFor="let gasto of gastos" >
+          <ion-item (click)="openGasto(gasto.id)" ng-switch="gasto.pago">
+              <ion-avatar item-start>
+                  <img src="{{ gasto.icone }}">
+              </ion-avatar>
+              <h2>{{ gasto.descricao }} <small><span style="color: red;">({{ gasto.qtd }}X)</span></small>  <span style="color: green; float: right;">R$: {{ gasto.valorTotal }}</span></h2>
+              <p></p>
+              <p *ngIf="gasto.pago==0" style="color: darkorange;"><small>{{ gasto.data }} | Não pago</small></p>
+              <p *ngIf="gasto.pago==1" style="color: green;"><small>{{ gasto.data }} | pago</small></p>
+
+          </ion-item>
+          <ion-item-options side="left">
+            <button ion-button color="primary" (click)="openGasto(gasto.id)"> <ion-icon name="create"></ion-icon>Editar</button>
+            <button ion-button color="danger" (click)="deleteGasto(gasto)"><ion-icon name="trash"></ion-icon>Excluir</button>
+          </ion-item-options>
+      </ion-item-sliding>
+  </ion-list>
+          
+    <ion-fab right bottom margin fab-content-margin fab-list-margin class="margin">
+      <button ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
+      <ion-fab-list side="top">
+          <button color="danger" (click)="goToNovoGasto()" ion-fab><ion-icon name="md-trending-down"></ion-icon><div class="label">Novo Gasto</div></button>
+      </ion-fab-list>
+      <ion-fab-list side="left">
+          <button ion-fab color="secondary" (click)="goToNovoLucro()"><ion-icon name="md-trending-up"></ion-icon><div class="label">Novo Lucro</div></button>
+      </ion-fab-list>
+    </ion-fab>
 </ion-content>

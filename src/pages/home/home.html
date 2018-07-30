@@ -1,11 +1,34 @@
 <ion-header>
+  <ion-item>
+    <ion-label>Filtros: Ano/Mês</ion-label>
+    <ion-select class="select" required [(ngModel)]="model.ano" (ionChange)="getAllDados()">
+        <ion-option *ngFor="let ano of anos" value="{{ ano }}">{{ ano }}</ion-option>
+    </ion-select>
+
+    <ion-select class="select" [(ngModel)]="model.mes" (ionChange)="getAllDados()" required>
+        <ion-option value="-1" selected>Mês</ion-option>
+        <ion-option value="1">Janeiro</ion-option>
+        <ion-option value="2">Fevereiro</ion-option>
+        <ion-option value="3">Março</ion-option>
+        <ion-option value="4">Abril</ion-option>
+        <ion-option value="5">Maio</ion-option>
+        <ion-option value="6">Junho</ion-option>
+        <ion-option value="7">Julho</ion-option>
+        <ion-option value="8">Agosto</ion-option>
+        <ion-option value="9">Setembro</ion-option>
+        <ion-option value="10">Outubro</ion-option>
+        <ion-option value="11">Novembro</ion-option>
+        <ion-option value="12">Dezembro</ion-option>
+    </ion-select>
+
+</ion-item>
 
 </ion-header>
 
 <ion-content>
   <div class="boxInicio" text-center>
-    <h3 style="color: white;">Saldo em conta</h3>
-    <h3 style="color: white;">R$ 600</h3>
+    <h1 style="color: white; margin-bottom: 1px;">Balanço total</h1>
+    <h1 style="color: white; margin-top: 1px;">R$: {{ balanco }}</h1>
   </div>
   <div text-center padding>
       <h2>Opções disponiveis:</h2>

@@ -5,58 +5,64 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+    <ion-item>
+        <ion-select class="select" required [(ngModel)]="model.ano" (ionChange)="getAllLucros()">
+            <ion-option *ngFor="let ano of anos" value="{{ ano }}">{{ ano }}</ion-option>
+        </ion-select>
 
+        <ion-select class="select" [(ngModel)]="model.mes" (ionChange)="getAllLucros()" required>
+            <ion-option value="-1" selected>Mês</ion-option>
+            <ion-option value="1">Janeiro</ion-option>
+            <ion-option value="2">Fevereiro</ion-option>
+            <ion-option value="3">Março</ion-option>
+            <ion-option value="4">Abril</ion-option>
+            <ion-option value="5">Maio</ion-option>
+            <ion-option value="6">Junho</ion-option>
+            <ion-option value="7">Julho</ion-option>
+            <ion-option value="8">Agosto</ion-option>
+            <ion-option value="9">Setembro</ion-option>
+            <ion-option value="10">Outubro</ion-option>
+            <ion-option value="11">Novembro</ion-option>
+            <ion-option value="12">Dezembro</ion-option>
+        </ion-select>
+
+        <ion-select class="select" [(ngModel)]="model.categoria" (ionChange)="getAllLucros()" required>
+            <ion-option value="0" selected>Tudo</ion-option>
+            <ion-option value="1">Cheque</ion-option>
+            <ion-option value="2">Cartao</ion-option>
+            <ion-option value="3">Dinheiro</ion-option>
+        </ion-select>
+    </ion-item>
 
 </ion-header>
 
 
 <ion-content>
     <ion-list>
-        <ion-item-sliding>
-            <ion-item>
+        <ion-item-sliding *ngFor="let lucro of lucros" >
+            <ion-item (click)="openLucro(lucro.id)">
                 <ion-avatar item-start>
-                    <img src="../../assets/imgs/larica.png">
+                    <img src="{{ lucro.icone }}">
                 </ion-avatar>
-                   <h2>Salario mensal: RS:500</h2>
+                <h2>{{ lucro.descricao }} <small><span style="color: green;">({{ lucro.qtd }}X)</span></small>  <span style="color: green; float: right;">R$: {{ lucro.valorTotal }}</span></h2>
+              <p></p>
+              <p *ngIf="lucro.recebido==0" style="color: darkorange;"><small>{{ lucro.data }} | Não Recebido</small></p>
+              <p *ngIf="lucro.recebido==1" style="color: green;"><small>{{ lucro.data }} | Recebido</small></p>
             </ion-item>
             <ion-item-options side="left">
-                    <button ion-button color="primary" (click)="openUserEdit(user.id)"> <ion-icon name="create"></ion-icon>Editar</button>
-                    <button ion-button color="danger" (click)="deleteUser(user)"> <ion-icon name="trash"></ion-icon>Excluir</button>
+            <button ion-button color="primary" (click)="openLucro(lucro.id)"> <ion-icon name="create"></ion-icon>Editar</button>
+            <button ion-button color="danger" (click)="deleteLucro(lucro)"><ion-icon name="trash"></ion-icon>Excluir</button>
             </ion-item-options>
         </ion-item-sliding>
-        <ion-item-sliding>
-                <ion-item>
-                        <ion-avatar item-start>
-                                <img src="../../assets/imgs/larica.png">
-                            </ion-avatar>
-                       <h2>Ganho loteria: RS:100</h2>
-                </ion-item>
-                <ion-item-options side="left">
-                        <button ion-button color="primary" (click)="openUserEdit(user.id)"> <ion-icon name="create"></ion-icon>Editar</button>
-                        <button ion-button color="danger" (click)="deleteUser(user)"> <ion-icon name="trash"></ion-icon>Excluir</button>
-                </ion-item-options>
-            </ion-item-sliding>
-            <ion-item-sliding>
-                    <ion-item>
-                            <ion-avatar item-start>
-                                    <img src="../../assets/imgs/larica.png">
-                                </ion-avatar>
-                           <h2>Presente do primo: RS:50</h2>
-                    </ion-item>
-                    <ion-item-options side="left">
-                            <button ion-button color="primary" (click)="openUserEdit(user.id)"> <ion-icon name="create"></ion-icon>Editar</button>
-                            <button ion-button color="danger" (click)="deleteUser(user)"> <ion-icon name="trash"></ion-icon>Excluir</button>
-                    </ion-item-options>
-                </ion-item-sliding>
     </ion-list>
             
     <ion-fab right bottom margin fab-content-margin fab-list-margin class="margin">
         <button ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
         <ion-fab-list side="top">
-            <button color="danger" ion-fab><ion-icon name="md-trending-down"></ion-icon></button>
+            <button color="danger" (click)="goToNovoGasto()" ion-fab><ion-icon name="md-trending-down"></ion-icon><div class="label">Novo Gasto</div></button>
         </ion-fab-list>
         <ion-fab-list side="left">
-            <button ion-fab color="secondary" (click)="goToNovoLucro()"><ion-icon name="md-trending-up"></ion-icon></button>
+            <button ion-fab color="secondary" (click)="goToNovoLucro()"><ion-icon name="md-trending-up"></ion-icon><div class="label">Novo Lucro</div></button>
         </ion-fab-list>
       </ion-fab>
 </ion-content>
