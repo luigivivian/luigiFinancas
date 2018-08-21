@@ -4,7 +4,7 @@ import { NovoGastoPage } from './novo-gasto';
 
 @NgModule({
   declarations: [
-    NovoGastoPage,
+
   ],
   imports: [
     IonicPageModule.forChild(NovoGastoPage),

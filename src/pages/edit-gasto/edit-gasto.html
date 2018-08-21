@@ -24,7 +24,7 @@
     <ion-item>
       <ion-icon name="add" item-start></ion-icon>
       <ion-label floating>Quantidade X</ion-label>
-      <ion-input min="1" step="1" [(ngModel)]="model.qtd" required value="1" type="number"></ion-input>
+      <ion-input min="1" step="1" [(ngModel)]="model.qtd" required type="number"></ion-input>
     </ion-item>
   
     <ion-item>      
@@ -58,8 +58,8 @@
       <ion-label>Pago ?</ion-label>
   </ion-item>
   
-  <div padding>
-    <button ion-button color="primary" (click)="save()" round block>Salvar</button>
+  <div padding> 
+    <button ion-button color="danger" (click)="save()" round block>Salvar</button>
   </div>
   
 </ion-content>

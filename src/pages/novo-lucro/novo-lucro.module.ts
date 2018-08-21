@@ -4,7 +4,6 @@ import { NovoLucroPage } from './novo-lucro';
 
 @NgModule({
   declarations: [
-    NovoLucroPage,
   ],
   imports: [
     IonicPageModule.forChild(NovoLucroPage),

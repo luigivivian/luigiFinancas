@@ -1,6 +1,5 @@
 <ion-header>
   <ion-item>
-    <ion-label>Filtros: Ano/Mês</ion-label>
     <ion-select class="select" required [(ngModel)]="model.ano" (ionChange)="getAllDados()">
         <ion-option *ngFor="let ano of anos" value="{{ ano }}">{{ ano }}</ion-option>
     </ion-select>
@@ -31,16 +30,20 @@
     <h1 style="color: white; margin-top: 1px;">R$: {{ balanco }}</h1>
   </div>
   <div text-center padding>
-      <h2>Opções disponiveis:</h2>
+    <div>
       <div>
-        <button ion-button full (click)="telaCriarConta()">CRIAR CONTA</button>
+        <h3>Lucros por categorias</h3>
+        <canvas #pieCanvasLucros></canvas>
       </div>
+    </div>
+
+    <div>
       <div>
-        <button ion-button full (click)="goToLogin()">LOGIN</button>
+        <h3>Gastos por categorias</h3>
+        <canvas #pieCanvasGastos></canvas>
       </div>
-      <div>
-        <button ion-button full (click)="telaListUsers()">LISTA USUARIOS</button>
-      </div>
+    </div>
+
   </div>
 
   <ion-fab text-center right bottom margin fab-content-margin fab-list-margin class="margin">

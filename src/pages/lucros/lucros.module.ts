@@ -6,9 +6,6 @@ import { LucrosPage } from './lucros';
 
 @NgModule({
   declarations: [
-    LucrosPage,
-    GastosPage,
-    EditLucroPage
   ],
   imports: [
     IonicPageModule.forChild(LucrosPage),

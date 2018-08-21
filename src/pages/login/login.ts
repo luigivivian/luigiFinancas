@@ -1,6 +1,5 @@
 
 import { TabsPage } from './../tabs/tabs';
-import { HomePage } from './../../../../calculadora/src/pages/home/home';
 import { CriarContaPage } from './../criar-conta/criar-conta';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';

@@ -10,14 +10,13 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UsuarioProvider {
 
-  private API_URL = 'http://192.168.3.150/apiFinancas/api/';
+  private API_URL = 'http://177.67.253.148/~iconoteca/ApiFinancas/api/';
 
   constructor(public http: Http) {
 
   }
 
   criarConta(nome: string, senha: string){
-
       return new Promise((resolve, reject) =>{
         var data = JSON.stringify({
             nome: nome,

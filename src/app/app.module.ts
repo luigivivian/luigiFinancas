@@ -14,8 +14,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { EditLucroPage } from '../pages/edit-lucro/edit-lucro';
 import { EditGastoPage } from '../pages/edit-gasto/edit-gasto';
 import { LoginPage } from '../pages/login/login';
-import { CriarContaPage } from '../pages/criar-conta/criar-conta';
-import { CadastroPage } from '../pages/cadastro/cadastro';
 import { UserListPage } from '../pages/user-list/user-list';
 import { NovoLucroPage } from '../pages/novo-lucro/novo-lucro';
 import { NovoGastoPage } from '../pages/novo-gasto/novo-gasto';
@@ -40,9 +38,6 @@ import { GastoProvider } from '../providers/gasto/gasto';
     AboutPage,
     HomePage,
     TabsPage,
-    CadastroPage,
-    CriarContaPage,
-    UserListPage,
     LoginPage,
     NovoLucroPage,
     NovoGastoPage,
@@ -62,9 +57,6 @@ import { GastoProvider } from '../providers/gasto/gasto';
     AboutPage,
     HomePage,
     TabsPage,
-    CadastroPage,
-    CriarContaPage,
-    UserListPage,
     LoginPage,
     NovoLucroPage,
     NovoGastoPage,

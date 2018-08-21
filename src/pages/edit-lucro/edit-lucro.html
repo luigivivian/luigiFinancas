@@ -23,7 +23,7 @@
       <ion-item>
         <ion-icon name="add" item-start></ion-icon>
         <ion-label floating>Quantidade X</ion-label>
-        <ion-input min="1" step="1" [(ngModel)]="model.qtd" required value="1" type="number"></ion-input>
+        <ion-input min="1" step="1" [(ngModel)]="model.qtd" required type="number"></ion-input>
       </ion-item>
     
       <ion-item>      
@@ -56,9 +56,9 @@
         <ion-checkbox checked="false" [(ngModel)]="model.flag"></ion-checkbox>
         <ion-label>Recebido?</ion-label>
     </ion-item>
-    
+     
     <div padding>
-      <button ion-button color="primary" (click)="save()" round block>Salvar</button>
+      <button ion-button color="secondary" (click)="save()" round block>Salvar</button>
     </div>
     
 </ion-content>
